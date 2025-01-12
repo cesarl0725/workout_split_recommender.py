@@ -1,0 +1,28 @@
+#Recommending Exercise Splits based on available time 
+full_body = "full body every session"
+push_pull_legs = "push, pull, legs split"
+upper_lower = "upper/lower split"
+best_split = ""
+avail_time = ""
+training_age = 0
+exercise_days = 0
+
+training_age = int(input("How long have you been training in months: "))
+if training_age <= 24:
+    best_split = full_body
+elif training_age < 36:
+    best_split = upper_lower
+else:
+    exercise_days = int(input("How many days a week can you exercise: "))
+    if exercise_days <= 3:
+        best_split = full_body
+    elif exercise_days == 4:
+        avail_time = input("how much time do you have to train(EX:40,60): ")
+        if avail_time >= "60":
+            best_split = upper_lower
+        else:
+            best_split = push_pull_legs
+    if exercise_days >= 5:
+        best_split = push_pull_legs
+    
+print("your best split is: " + best_split)
